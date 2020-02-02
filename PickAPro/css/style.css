@@ -1,0 +1,339 @@
+body 
+{
+background-image:url('images/background.jpg');
+background-repeat: no-repeat;
+background-size: auto;
+
+}
+
+nav {
+    background-color: floralwhite;
+    opacity: 0.8;
+}
+
+
+.collapse 
+{
+    font-family: 'Orbitron', sans-serif;
+    color: mediumblue;
+}
+#logo {
+    height: 50px;
+    width: 60px;
+    opacity: 2;
+    margin: auto;
+    padding: auto;
+
+}
+
+p.text-primary {
+    color: mediumblue;
+    position: absolute;
+    left: 100px;
+    top: 30px;
+    font-size: 30px;
+    font-family: 'Orbitron', sans-serif;
+
+}
+
+.box {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 50px;
+    background: floralwhite;
+    opacity: 1;
+    border-radius: 10px;
+
+}
+
+
+
+.box .inputBox {
+    position: relative;
+
+}
+
+.box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: darkgrey;
+    text-align: center;
+
+
+}
+
+
+.alert{
+    text-align:left;
+    padding:10px;
+    background:green;
+    color:#fff;
+    margin-bottom:10px;
+
+}
+
+.modal {
+    background-color: floralwhite;
+    opacity: 0.8;
+    color: mediumblue;
+    background: transparent;
+}
+
+#registered_msg,
+.logged_out,
+.logged {
+    text-align:center;
+    padding:10px;
+    background:green;
+    color:#fff;
+    margin-bottom:10px; 
+}
+
+.post,
+#send_a_post,
+#jobs_room {
+    text-align:center;
+    padding:10px;
+    background:darkslateblue;
+    color:#fff;
+    margin-bottom:10px; 
+}
+
+
+.box .inputBox input {
+    width: 100%;
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 3px solid darkgoldenrod;
+    outline: none;
+    background: transparent;
+}
+
+#logOut 
+{
+
+    color: mediumblue;
+    position: absolute;
+    right: 100px;
+    top: 30px;
+    font-size: 15px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+#loggedUserInfo {
+    color: mediumblue;
+    position: absolute;
+    right: 200px;
+    top: 30px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    display:none;
+}
+
+
+#signClient input,
+#postIssue
+{
+    color: mediumblue;
+    position: absolute;
+    right: 230px;
+    top: 30px;
+    font-size: 15px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+
+.welcomeMsg {
+
+    color: mediumblue;
+    position: absolute;
+    right: 100px;
+    top: 100px;
+    font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+#firebaseui-auth-container,
+#loader {
+    
+    position: relative;
+   
+}
+
+.box .inputBox label {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    font-size: 15px;
+    color: darkslateblue;
+    transition: .10s;
+}
+
+
+
+.box .inputBox input:focus~label,
+.box .inputBox input:valid~label {
+
+    position: absolute;
+    top: -30px;
+    left: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: darkslateblue;
+
+}
+
+.box input[type="submit"] {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: whitesmoke;
+    font-weight: 600;
+    background: darkslateblue;
+    padding: 5px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+#user,
+#password
+{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 500;
+}
+
+.loader{
+    width: 100px;
+    height: 70px;
+    margin: 50px auto;
+    position: relative;
+}
+.loader span{
+    display: block;
+    width: 5px;
+    height: 10px;
+    background: #e43632;
+    position: absolute;
+    bottom: 0;
+    animation: loading-1 2.25s  infinite ease-in-out;
+}
+.loader span:nth-child(2){
+    left: 11px;
+    animation-delay: .2s;
+}
+.loader span:nth-child(3){
+    left: 22px;
+    animation-delay: .4s;
+}
+.loader span:nth-child(4){
+    left: 33px;
+    animation-delay: .6s;
+}
+.loader span:nth-child(5){
+    left: 44px;
+    animation-delay: .8s;
+}
+.loader span:nth-child(6){
+    left: 55px;
+    animation-delay: 1s;
+}
+.loader span:nth-child(7){
+    left: 66px;
+    animation-delay: 1.2s;
+}
+.loader span:nth-child(8){
+    left: 77px;
+    animation-delay: 1.4s;
+}
+.loader span:nth-child(9){
+    left: 88px;
+    animation-delay: 1.6s;
+}
+@-webkit-keyframes loading-1{
+    0%{
+        height: 10px;
+        transform: translateY(0px);
+        background: #ff4d80;
+    }
+    25%{
+        height: 60px;
+        transform: translateY(15px);
+        background: #3423a6;
+    }
+    50%{
+        height: 10px;
+        transform: translateY(-10px);
+        background: #e29013;
+    }
+    100%{
+        height: 10px;
+        transform: translateY(0px);
+        background: #e50926;
+    }
+}
+@keyframes loading-1{
+    0%{
+        height: 10px;
+        transform: translateY(0px);
+        background: #ff4d80;
+    }
+    25%{
+        height: 60px;
+        transform: translateY(15px);
+        background: #3423a6;
+    }
+    50%{
+        height: 10px;
+        transform: translateY(-10px);
+        background: #e29013;
+    }
+    100%{
+        height: 10px;
+        transform: translateY(0px);
+        background: #e50926;
+    }
+}
+
+
+.commentBox {
+    width:100%;
+    border:1px solid black;
+    background-color:aliceblue;
+    margin-bottom:10px;
+}
+
+.leftPanelImg{
+    width:20px;
+    float:left;
+}
+
+.leftPanelImg img{
+    border-radius:100%;
+}
+
+.rightPanel{
+    width:80%;
+    float:left;
+}
+
+.clear{
+    clear:both;
+}
+
+
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+  }

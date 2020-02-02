@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link rel="stylesheet" href="css\style.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Post a problem and contact a Pro</title>
+
+    <style>
+        body {
+            background-image: url('css/images/becomePro.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-light" id="navbar_client">
+            <div >
+                    <img src="css\images\logo2.png" alt="logo.jpg" id="logo">
+                    <a class="navbar-brand"></a><p class="text-primary">Pick A Pro</p>
+                 </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" style="font-family: 'Orbitron', sans-serif;color: mediumblue;"><a
+                            href="HowItWorks.html">How it works</a> <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" style="font-family: 'Orbitron', sans-serif;color: mediumblue;"><a href="BecomeAPro.html">Become a Pro</a></a>
+                </li>
+                <li class="nav-item active">
+                        <a class="nav-link" href="index.html" style="font-family: 'Orbitron', sans-serif;color: mediumblue;"><img src="css\images\homepage.png" style="width:30px; height:30px"> Return to login page</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">POST YOUR PROBLEM</h4>
+            <p>Sign up, post and describe your problem as issue ticket so that some of our registered professionals can contact you</p>
+          </div>
+
+<div class="posted" style="display:none">Your message has been sent</div>
+
+<div class="container" id="loading" style="display:none">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="loader">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="box" id="postForm">
+      <h2>Sign up</h2>
+        <form>
+                <div>
+                        <input type="radio" name="type" value="Company">Company
+                        <input type="radio" name="type" value="Person">Person
+                        
+                    </div><br/>
+                    <div class="inputBox">
+                        <input type="text" name="RegisterForm"  id="firstname" required>
+                        <label for="firstname" >Firstname:</label>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="RegisterForm"  id="last_name" required>
+                        <label for="last_name" >Lastname:</label>
+                    </div>
+        
+                    <div class="inputBox">
+                        <input type="text" name="RegisterForm" id="location" required>
+                        <label for="location" >Location:</label>
+                    </div>
+                  
+                    <div class="inputBox">
+                        <input type="email" name="RegisterForm" id="newUser_email" required>
+                        <label for="email" >E-mail:</label>
+                    </div>
+        
+                    <div class="inputBox">
+                        <input type="password" name="RegisterForm" id="newUser_password" required>
+                        <label for="password" >Create Password:</label>
+                    </div>
+                    <div class="reportProblem">
+                        <label for="post_a_problem">Do You Want To Report A Problem?</label>
+                        <select id="post_question" onchange="Other()">
+                              <option value="yes">Yes</option>
+                              <option value="no" selected>No, I just want to sign up</option>
+                        </select>
+                      </div>
+        
+            <div class="inputBox" id="problem_type" style="display:none">Select problem type:
+                <select id="category" name="profession_category" onchange="Other()">
+                        <option value="select category" selected>Select category</option>
+                        <option>Electrical</option>
+                        <option>Carpentry</option>
+                        <option>Paint services</option>
+                        <option>Landscape services</option>
+                        <option>Plumbing</option>
+                        <option>Handiwork</option>
+                        <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="inputBox" id="other_selected" style="display:none" onchange="Other()">  
+               <input id="other_profession_category" name="RegisterForm" placeholder="Insert category/industry regarding your problem">
+            </div>
+            <br/>
+            <div class="inputBox" id="post_from_user"  name="RegisterForm" style="display:none" onchange="Other()"> 
+                
+                <textarea rows="8" cols="65">
+                    
+                </textarea>
+            </div>
+          
+            <input type="submit" value="Post" name="loginForm" id="user_submitPost" onclick="alertMsg()">
+        </form>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-firestore.js"></script>
+
+<script>
+// web app's Firebase configuration
+var firebaseConfig = {
+apiKey: "AIzaSyBulcduYuKQfGIUbqq4xNbx-1MR65ia86s",
+authDomain: "pickapro-b9b63.firebaseapp.com",
+databaseURL: "https://pickapro-b9b63.firebaseio.com",
+projectId: "pickapro-b9b63",
+storageBucket: "pickapro-b9b63.appspot.com",
+messagingSenderId: "26515396537",
+appId: "1:26515396537:web:623bbaf83a4df9c0"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+var auth=firebase.auth();
+var db=firebase.firestore();
+
+</script>
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+<script src="index.js"></script> 
+</body>
+
+
+
+
+
+</html>

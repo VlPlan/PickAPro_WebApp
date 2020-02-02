@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link rel="stylesheet" href="css\style.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Register as Pro</title>
+
+    <style>
+        body {
+            background-image: url('css/images/becomePro.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+    </style>
+
+ 
+</head>
+
+<body>
+
+    <nav class="navbar navbar-light">
+            <div >
+                    <img src="css\images\logo2.png" alt="logo.jpg" id="logo">
+                    <a class="navbar-brand"></a><p class="text-primary">Pick A Pro</p>
+           </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="HowItWorks.html" style="font-family: 'Orbitron', sans-serif;color: mediumblue;">
+                       How it works</a>
+                </li>
+                <li class="nav-item active">
+                        <a class="nav-link" href="index.html" style="font-family: 'Orbitron', sans-serif;color: mediumblue;"><img src="css\images\homepage.png" style="width:30px; height:30px"> Return to login page</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    
+    <div class="alert alert-success" role="alert" id="Pro_description">
+            <h4 class="alert-heading">Register today</h4>
+            <p>Create your profile, search through shared tickets, and solve someone's problem as real Professional</p>
+            <hr>
+            <p class="mb-0">Work with the one you select, contact them and place them an offer</p>
+    </div>
+
+    <div class="container" id="loading" style="display:none">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="loader">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div id="registered_msg" style="display:none">You have successfully registered</div>
+
+    <div class="box" >
+        <h2>Sign Up as Pro</h2>
+        <form id="signUpPro">
+            <div class="InputBox">
+                Company <input type="radio" name="ProType" value="Company" class="pro_type">
+                Person <input type="radio" name="ProType" value="Person" class="pro_type">
+                
+            </div>
+            <div class="inputBox">
+                <input type="text" name="RegisterForm" id="name" required>
+                <label for="firstname" >Firstname:</label>
+            </div>
+            <div class="inputBox">
+                <input type="text" name="RegisterForm" id="lastname" required>
+                <label for="lastname" >Lastname:</label>
+            </div>
+            <div class="inputBox">
+                <input type="text" name="RegisterForm" id="profession" required>
+                <label for="occupation" >Occupation/Profession:</label>
+            </div>
+
+            <div class="inputBox">
+                <input type="text" name="RegisterForm" id="specialities" required>
+                <label for="specialities" >Specialities/Type of repairs:</label>
+            </div>
+
+            <div class="inputBox">
+                    <input type="text" name="RegisterForm" id="location" required>
+                    <label for="location" >Location:</label>
+                </div>
+            <div class="inputBox">
+                    <input type="number" name="RegisterForm" id="salary" required>
+                    <label for="salary" >Hourly salary (Eur):</label>
+                </div>
+          
+            <div class="inputBox">
+                <input type="text" name="RegisterForm" id="register_email" required>
+                <label for="email" >E-mail:</label>
+            </div>
+
+            <div class="inputBox">
+                <input type="password" name="RegisterForm" id="password" required>
+                <label for="password" >Create Password:</label>
+            </div>
+          
+            <input type="submit" value="Register"  id="registerPro" >
+        </form>
+    </div>
+   
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>  
+<script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-firestore.js"></script>
+<script src="index.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+        
+</body>
+
+</html>

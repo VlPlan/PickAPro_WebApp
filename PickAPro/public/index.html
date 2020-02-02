@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link rel="stylesheet" href="css\style.css" type="text/css">
+    <link rel="stylesheet" href="css\profile_style.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Pick A Professional to handle your job</title>
+  </head>
+  <body>
+
+    <!-- NAV BAR --> 
+      <nav class="navbar navbar-light">
+     <div >
+        <img src="css\images\logo2.png" alt="logo.jpg" id="logo">
+        <a class="navbar-brand"></a><p class="text-primary">Pick A Pro</p>
+     </div>
+
+     <!-- <div  id="signClient" class="signed_out" style="display:none"  onclick='post_problem()'>   
+          <a href="#"><input type="submit" value="Sign Up & Post a Job"></a>
+        </div>   -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>    
+        </button>  
+      
+        <!-- SIGNED OUT MENU -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+            <ul class="navbar-nav mr-auto">
+             <div >
+              <li id="howItworks"  class="signed_out" style="display:none">
+                <a class="nav-link" href="HowItWorks.html" style="font-family: 'Orbitron', sans-serif;color: mediumblue;">How it works</a>  <span class="sr-only">(current)</span></a>
+              </li>
+              <li id="becomeAPro"  onclick="registerPro_form()" class="signed_out" style="display:none">
+                  <a class="nav-link" href="#" style="font-family: 'Orbitron', sans-serif;color: mediumblue;" >Become Pro
+                  <span class="sr-only">(current)</span></a>
+              </li>  
+              <!-- SIGNED IN MENU -->
+    <br/>
+              <li onclick="show_posts()" id="check_posts" class="signed_in" style="display:none" >
+                  <a  href="#" style="font-family: 'Orbitron', sans-serif;color: mediumblue;">Check posted jobs</a>
+              </li>
+              <li  onclick="create_post()" id="post_issue" class="signed_in" style="display:none">
+                  <a  href="#" style="font-family: 'Orbitron', sans-serif;color: mediumblue;">+ Post a job</a>
+              </li>
+              <li  id="find_pro" class="signed_in" style="display:none" onclick="create_table_pros()">
+                <a  href="#" style="font-family: 'Orbitron', sans-serif;color: mediumblue;" >Find A Pro</a>
+             </li>
+              <div  id="searchByIndustry"  class="signed_in" style="display:none" aria-labelledby="navbarDropdown" >
+                <li onclick="show_posts()" id="navbarDropdown" role="button" data-toggle="collapse" aria-haspopup="true" aria-expanded="false" style="font-family: 'Orbitron', sans-serif;color: mediumblue;">
+                <a href="#" >Get Jobs by Industry</a>
+
+                </li>
+                
+               
+        
+                 
+                    <select  id = "select_tags_category"  style="font-family: 'Orbitron', sans-serif;color: mediumblue;">
+                    <option class="dropdown-item" href="#" value="Electrical">Electrical</option>
+                  <option class="dropdown-item" href="#" value="Carpentry" >Carpentry</option>
+               <option class="dropdown-item" href="#" value = "Paint services" > Paint services</option>
+                <option class="dropdown-item" href="#" value = "Landscape services" > Landscape services</option>
+                <option class="dropdown-item" href="#" value = "Plumbing" >Plumbing</option>
+               <option class="dropdown-item" href="#" value = "Handiwork" > Handiwork</option>
+                <option class="dropdown-item" href="#" value = "Other" >Other</option>
+                    </select>    
+              
+                
+             
+                </div>
+                
+              <li id='return' style="display:none" class="signed_in" style="display:none">
+                <a class="nav-link" href="index.html" style="font-family: 'Orbitron', sans-serif;color: mediumblue;"><img src="css\images\homepage.png" style="width:30px; height:30px"> Return to homepage</a>
+            </li>
+           
+            <li style="display:none" class="signed_in" style="display:none">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search services" aria-label="Search" id="searchServices" onclick="create_table_pros()">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchProsBtn" onclick="searchPros()">Search</button>
+            </li>
+            <div class='signed_in' id="loggedUserInfo"></div>
+           <div  id="logoutBtn" style="display:none" class="signed_in" style="display:none">
+               <input type="submit" value="Sign out" id="logOut" onclick="LogOut()">
+           </div>
+          
+          </ul>
+            </div>
+        </nav>
+
+
+
+                 <!-- MAIN LOGIN FORM ON HOMEPAGE -->
+       
+               
+                 <div class="box" id="login"  style="display:none">
+                  <h2>Sign in</h2>
+                  <form id="login_form">
+                    <div class="inputBox">
+                        <input type="text" name="LoginForm"  id="user" required>
+                        <label for="username" >E-mail:</label>
+                    </div> 
+                    <div class="inputBox">
+                        <input type="password" name="LoginForm" id="pass" required>
+                        <label for="password">Password:</label>
+                    </div>
+                    <input type="submit" value="Sign in" name="loginForm" id="signIn">
+                    
+                  </form>
+                  
+                  <br/>
+                   <input type="submit" value="Register" id="signUp" onclick="registerPro_form()"> 
+                </div> 
+              
+
+
+        <!--  BECOME A PRO (SIGN UP form) section -- Registered Message alert, Description, Sign Up form > -->
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+        <!-- Registered Message alert - when user finish the registration form -->
+
+  <div id="registered_msg" style="display:none">You have successfully registered</div>  
+
+      <!-- Description of user profile actions -->
+  
+  <div class="alert alert-success" role="alert" id="Pro_description" style='display:none'>
+          <h4 class="alert-heading">Register today</h4>
+          <p>Create your profile, search through shared tickets, and solve someone's problem as real Professional</p>
+          <hr>
+          <p class="mb-0">Work with the one you select, contact them and place them an offer</p>
+  </div>
+
+  <!-- Sign up form  -->
+
+        <div class="box" id="signUpasPro" style='display:none'> 
+          <h2>Sign Up as Pro or User</h2>
+          <form id="signUpPro">
+            <select id="user_category" onchange="userSelected()">
+            
+              <option value="Pro" >Sign up as Pro</option>
+              <option value="User" >Sign up as User</option>
+              
+            </select>
+                <input for="user_category" id="label_user" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:mediumblue" ></input>
+              
+                <br/><br/>
+              
+              <div class="inputBox">
+                  <input type="text"  id="name" >
+                  <label for="firstname" >Firstname:</label>
+              </div>
+              <div class="inputBox">
+                  <input type="text"  id="lastname" >
+                  <label for="lastname" >Lastname:</label>
+              </div>
+           
+              <div id="occupation" >
+                 <label for="occupation" name="occupation" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:mediumblue" id="category_label">Select category:</label>
+                  <select  style="font-family: 'Orbitron', sans-serif;color: mediumblue;" id="category_pros" name="category_pros">
+                    
+                    <option class="dropdown-item" value="Electrical">Electrical</option>
+                    <option class="dropdown-item" value="Carpentry">Carpentry</option>
+                    <option class="dropdown-item" value="Paint services">Paint services</option>
+                    <option class="dropdown-item" value="Landscape services">Landscape services</option>
+                    <option class="dropdown-item" value="Plumbing">Plumbing</option>
+                    <option class="dropdown-item" value="Handiwork">Handiwork</option>
+                    <option class="dropdown-item" value="Other">Other</option>
+                  </select>
+                
+              </div>
+              <br/>
+  
+              <div class="inputBox" id="speciality" style="display:none">
+                  <input type="text"  id="specialities" >
+                  <label for="specialities" >Specialities/Type of repairs:</label>
+              </div>
+  
+              <div class="inputBox">
+                      <input type="text"  id="location" >
+                      <label for="location" >Location:</label>
+                  </div>
+              <div class="inputBox" id="rate" style="display:none">
+                      <input type="number"  id="salary" >
+                      <label for="salary" >Hourly salary (Eur):</label>
+                  </div>
+            
+              <div class="inputBox">
+                  <input type="text" id="register_email" >
+                  <label for="email" >E-mail:</label>
+              </div>
+  
+              <div class="inputBox">
+                  <input type="password"  id="password" >
+                  <label for="password" >Create Password:</label>
+              </div>
+            
+              <input type="submit" value="Register"  id="registerPro" >
+          </form>
+      </div>
+
+<!-- -------------------------------------------------------------------------------------------------------- -->
+
+<!-- Login and logout spinner -->
+        <div class="logged" style="display:none">Login successful</div>
+        <div class="logged_out" style="display:none">You have successfully logged out</div>
+        <div class="container" id="loading" style="display:none">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="loader">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- Invalid password Modal- Error Message while logging in -->
+
+        <div class="modal" tabindex="-1" role="dialog" style="display:none">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Error signing in..</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Invalid username or password, or no network connection... please try again</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- User profile page -->
+
+        
+<div id="user_profile" class="signed_in" style="display:none"></div>
+
+          <!-- DISPLAY MESSAGES -->
+
+<div id="token_div" style="display: none;">
+  <h4>Instance ID Token</h4>
+  <p id="token" style="word-break: break-all;"></p>
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+          onclick="deleteToken()">Delete Token</button>
+</div>
+<div id="permission_div" style="display: none;">
+  <h4>Needs Permission</h4>
+  <p id="token"></p>
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+          onclick="requestPermission()">Request Permission</button>
+</div>
+<div id="messages"></div>
+</div>
+
+
+
+
+          <!-- Display Posts from clients - CHECK POSTED ISSUES section -->
+
+          <div id="jobs_room" style='display:none'>Jobs room</div>
+          <div id="send_a_post" style='display:none'>Post a Job</div>
+          <div class="posts_board" style='display:none'></div>        
+
+
+
+
+   
+          
+          
+
+
+
+          <!-- RENDER PRO's TABLE -->
+         
+            <table class="table table-dark"  id="table" style="display:none" >
+                  <thead  style="display:none">
+                    <tr id="table_headers">
+                        <th scope="col"></th>
+                      <th scope="col" >Firstname</th>
+                      <th scope="col" >Lastname</th>
+                      <th scope="col" >Email</th>
+                      <th scope="col" >Location</th>
+                      <th scope="col" >Occupation</th>
+                      <th scope="col" >Specialities</th>
+                      <th scope="col" >Salary</th>
+                    </tr>
+                  </thead>
+                  <tbody id="render_table" style="display:none">
+
+                      
+              
+                    </tbody>
+                  </table>
+              
+
+          <div id="jobs_room" style='display:none' >Jobs room</div>
+          <div id="send_a_post" style='display:none'>Post a Job</div>
+          <div class="posts_board" style='display:none'></div>  
+
+
+          <!-- POST A PROBLEM - section  -->
+
+          <div class="alert alert-success" role="alert" id="post_Description"  style="display:none">
+            <h4 class="alert-heading">POST YOUR PROBLEM</h4>
+            <p>Post and describe your problem as issue ticket so that some of our registered professionals can contact you</p>
+          </div>
+
+          <div class="post" style="width:400px; height:80px; float:left; display:none">Your message has been sent</div>
+
+          <div class="box" id="postForm" style="display:none">
+            <h2>Post a Job form</h2>
+              <form id="new_post" style="display:none"  >
+
+                          <div  class="inputBox" id="firstname_user"  class='unregistered_user'  style="display:none"  >
+                              <input type="text"  name="firstname" id="firstname">
+                              <label for="firstname" >Firstname:</label>
+                          </div>
+                          <div class="inputBox" class='unregistered_user' style="display:none">
+                              <input type="text" name="lastname" id="last_name">
+                              <label for="last_name" >Lastname:</label>
+                          </div>
+              
+                          <div  class="inputBox" id="location_user" class='unregistered_user'   style="display:none" >
+                              <input type="text" name="location" id="place">
+                              <label for="location" >Location:</label>
+                          </div>
+                        
+                          <div class="inputBox" id="user_email" class='unregistered_user' style="display:none">
+                              <input type="email" name="email" id="newUser_email" >
+                              <label for="email" >E-mail:</label>
+                          </div>
+                          <div class="inputBox" id="tel" class='unregistered_user' style="display:none">
+                            <input type="number" name="tel" id="telephone">
+                            <label for="RegisterForm" >Telephone:</label>
+                        </div>
+           
+                          <div class="inputBox" class='unregistered_user' style="display:none">
+                              <input type="password" name="pass"id="newUser_password">
+                              <label for="password" >Create Password:</label>
+                          </div>
+              
+                  <div class="inputBox" id="problem_type" style="display:none" >Select problem type:
+                      <select id="category" name="profession_category" onchange="Other()">
+                              <option value="select_category">Select category</option>
+                              <option>Electrical</option>
+                              <option>Carpentry</option>
+                              <option>Paint services</option>
+                              <option>Landscape services</option>
+                              <option>Plumbing</option>
+                              <option>Handiwork</option>
+                              <option value="other">Other</option>
+                      </select>
+                  </div>
+                  <div class="inputBox" id="other_selected"  onchange="Other()" style="display:none">  
+                     <input id="other_profession_category"  name="RegisterForm" placeholder="Insert category/industry regarding your problem">
+                  </div>
+                  <br/>
+                  
+                      <div id="user_submitPost" style="display:none" onchange="Other()">
+                      <textarea rows="8" cols="65" id="textarea">
+                          
+                      </textarea>
+                 
+              
+                    <input  type="submit" value="Post" >
+                  </div>
+                  
+              </form>
+          </div>
+
+
+          
+
+
+        <!-- SCRIPTS -->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script> 
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-firestore.js"></script>
+<script src="index.js"></script>
+<base href="https://pickapro-b9b63.firebaseapp.com/">
+<script type="text/javascript" src="https://pickapro-b9b63.firebaseapp.com/runtime.a66f828dca56eeb90e02.js"></script>
+<base href="https://pickapro-b9b63.firebaseapp.com/"> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+      </body>
+      
+        
+</html>
